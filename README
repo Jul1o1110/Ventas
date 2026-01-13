@@ -9,3 +9,17 @@ Utilizaremos un archivo de datos ficticios que se encuentras en `datos.csv`.
 Donde estos datos van a ser procesados por medio del script `limpieza.py`,
 que en este limpiara los datos tanto eliminados los valores nulos como los
 textos en mayusculas y con espacios en blanco.
+
+## Código Principal (`app.py`)
+
+Utiliza **Flask** para crear un servidor web y llama a las funciones de nuestro script de **limpieza** para procesar los datos antes de mostrarlos.
+
+### ¿Qué hace este código?
+1. **Importa los módulos**: Carga Flask para la web y nuestro script `limpieza` (usando el alias `lp`).
+2. **Procesa los datos**: 
+   - Carga el archivo `datos.csv`.
+   - Limpia valores nulos.
+   - Estandariza nombres de productos y ciudades.
+3. **Crea la ruta principal (`/`)**: 
+   - Calcula el total de ventas por ciudad usando `groupby`.
+   - Envía los datos limpios al archivo HTML (`index.html`).
