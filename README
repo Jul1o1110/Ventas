@@ -10,7 +10,7 @@ Donde estos datos van a ser procesados por medio del script `limpieza.py`,
 que en este limpiara los datos tanto eliminados los valores nulos como los
 textos en mayusculas y con espacios en blanco.
 
-## Código Principal (`app.py`)
+## Código Principal (`main.py`)
 
 Utiliza **Flask** para crear un servidor web y llama a las funciones de nuestro script de **limpieza** para procesar los datos antes de mostrarlos.
 
