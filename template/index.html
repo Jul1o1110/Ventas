@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Ventas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="Fondo-principal"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Ventas de productos</h1>
+            <p class="subtitulo">Datos procesados</p>
+        </header>
+
+        <section class="total-ventas">
+            {% for ciudad, total in resumen_ciudad.items() %}
+            <div class="ventas-detalladas">
+                <h3>{{ ciudad }}</h3>
+                <p class="total">${{ "{:,.2f}".format(total) }}</p>
+                <span class="label">Ventas Totales</span>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="tabla-container">
+            <h2>Detalle de Registros</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Ciudad</th>
+                        <th>Valor Venta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td class="producto-nombre">{{ item.NombreProducto }}</td>
+                        <td class="ciudad-nombre">{{ item.Ciudad }}</td>
+                        <td class="precio">${{ item.ValorVenta }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

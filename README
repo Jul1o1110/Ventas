@@ -23,3 +23,10 @@ Utiliza **Flask** para crear un servidor web y llama a las funciones de nuestro 
 3. **Crea la ruta principal (`/`)**: 
    - Calcula el total de ventas por ciudad usando `groupby`.
    - Envía los datos limpios al archivo HTML (`index.html`).
+
+## Interfaz Web (`index.html`)
+
+### Características de la interfaz:
+* **Resumen por Ciudad**: Una sección que recorre el diccionario `resumen_ciudad` para mostrar cuánto se vendió en cada lugar.
+* **Tabla de Detalles**: Una tabla dinámica que muestra cada producto, su ciudad y su precio final.
+* **Formato de Moneda**: Se utiliza el filtro `.format()` de Python dentro de la plantilla para que los precios se vean con comas y decimales (ej: $1,250.00).
