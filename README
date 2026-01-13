@@ -1,0 +1,11 @@
+# ANALISIS DE VENTAS
+
+En creado un entorno virtual al cual le he instlado Flask y Pandas.
+
+## Modo de uso
+
+Utilizaremos un archivo de datos ficticios que se encuentras en `datos.csv`.
+
+Donde estos datos van a ser procesados por medio del script `limpieza.py`,
+que en este limpiara los datos tanto eliminados los valores nulos como los
+textos en mayusculas y con espacios en blanco.
