@@ -19,7 +19,9 @@ def home():
     df = obtener_datos_procesados()
     if df is not None:
         vs.generar_graficos(df)
-        tabla_html = df.to_html(classes='tabla-estilo', index=False)
+        df_table = df.copy()
+        df_table['ValorVenta'] = df_table['ValorVenta'].apply(lambda x: f"${x:,.0f}")
+        tabla_html = df_table.to_html(classes='tabla-estilo', index=False)
         return render_template('index.html', tabla=tabla_html)
     return "Error: No se encontró el archivo datos.csv"
 

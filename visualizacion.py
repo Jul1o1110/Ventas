@@ -41,7 +41,6 @@ def generar_graficos(df):
     fig2, ax2 = plt.subplots(figsize=(8, 5))
     fig2.patch.set_facecolor(color_fondo_tarjeta)
 
-    # Paleta de colores degradados para la torta
     colores_torta = ['#0ea5e9', '#0284c7', '#0369a1', '#075985', '#0c4a6e']
 
     df_temp.groupby('NombreProducto')['ValorVenta'].sum().nlargest(5).plot(

@@ -97,8 +97,16 @@ th {
 td {
     padding: 12px 15px;
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-dim);
+    color: white;
+    font-weight: bold;
 }
+
+td:nth-child(2) { 
+    text-align: right !important;
+    font-family: 'Courier New', monospace;
+    color: #10b981;
+}
+
 
 tr:hover td {
     background-color: #2d3a4f;
