@@ -1,32 +1,48 @@
-# ANALISIS DE VENTAS
+# 📊 Sistema de Reporte de Ventas - Dashboard Modo Oscuro
 
-En creado un entorno virtual al cual le he instlado Flask y Pandas.
+Este proyecto es una aplicación web interactiva desarrollada con **Flask** y **Pandas**. Permite transformar datos tabulares de ventas en un dashboard visualmente elegante.
 
-## Modo de uso
+## 🚀 Características Principales
 
-Utilizaremos un archivo de datos ficticios que se encuentras en `datos.csv`.
+- **Dashboard Moderno:** Interfaz de usuario diseñada con CSS.
+- **Visualización de Datos:** - Gráfico de barras para el análisis de ventas por ciudad.
+  - Gráfico de torta para el Top 5 de productos más vendidos.
+  - Estética coherente con el modo oscuro y fondos transparentes.
+- **Procesamiento de Datos:** Limpieza y normalización de nombres de ciudades y productos con Pandas.
+- **Tabla de Datos Profesional:** - Formato de moneda localizado ($).
+  - Alineación contable (números a la derecha, texto a la izquierda).
+  - Resaltado visual de la columna de ingresos en verde esmeralda.
 
-Donde estos datos van a ser procesados por medio del script `limpieza.py`,
-que en este limpiara los datos tanto eliminados los valores nulos como los
-textos en mayusculas y con espacios en blanco.
+## 🛠️ Stack Tecnológico
 
-## Código Principal (`main.py`)
+* **Backend:** Datos.csv(ficticios)
+* **Análisis de Datos:** Pandas
+* **Gráficos:** Matplotlib
+* **Frontend:** HTML5 / CSS3
 
-Utiliza **Flask** para crear un servidor web y llama a las funciones de nuestro script de **limpieza** para procesar los datos antes de mostrarlos.
+## 📦 Instalación y Uso
 
-### ¿Qué hace este código?
-1. **Importa los módulos**: Carga Flask para la web y nuestro script `limpieza` (usando el alias `lp`).
-2. **Procesa los datos**: 
-   - Carga el archivo `datos.csv`.
-   - Limpia valores nulos.
-   - Estandariza nombres de productos y ciudades.
-3. **Crea la ruta principal (`/`)**: 
-   - Calcula el total de ventas por ciudad usando `groupby`.
-   - Envía los datos limpios al archivo HTML (`index.html`).
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/Jul1o1110/Ventas.git](https://github.com/Jul1o1110/Ventas.git)
+    cd Ventas
+    ```
 
-## Interfaz Web (`index.html`)
+2.  **Instalar las librerías necesarias:**
+    ```bash
+    pip install flask pandas matplotlib
+    ```
 
-### Características de la interfaz:
-* **Resumen por Ciudad**: Una sección que recorre el diccionario `resumen_ciudad` para mostrar cuánto se vendió en cada lugar.
-* **Tabla de Detalles**: Una tabla dinámica que muestra cada producto, su ciudad y su precio final.
-* **Formato de Moneda**: Se utiliza el filtro `.format()` de Python dentro de la plantilla para que los precios se vean con comas y decimales (ej: $1,250.00).
+3.  **Ejecutar la aplicación:**
+    ```bash
+    python main.py
+    ```
+    *La aplicación estará disponible en `http://127.0.0.1:5000`*
+
+## 🎨 Estructura del Proyecto
+
+- `app.py`: Servidor Flask y lógica de procesamiento de datos.
+- `static/style.css`: Estilos personalizados para el modo oscuro y tablas.
+- `templates/`: Archivos HTML para la renderización del dashboard.
+- `static/`: Almacenamiento automático de los gráficos generados (.png).
+- `datos.csv`: Datos ficticios para el ejemplo.
