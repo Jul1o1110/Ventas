@@ -1,6 +1,6 @@
-
 from flask import Flask, render_template
 import limpieza as lp
+import visualizacion as vs
 
 app = Flask(__name__)
 
@@ -17,30 +17,11 @@ def obtener_datos_procesados():
 @app.route('/')
 def home():
     df = obtener_datos_procesados()
-    
-    ventas_ciudad = df.groupby('Ciudad')['ValorVenta'].sum().to_dict()
-
-    registros = df.to_dict(orient='records')
-    
-    return render_template('index.html', 
-                           datos=registros, 
-                           resumen_ciudad=ventas_ciudad)
+    if df is not None:
+        vs.generar_graficos(df)
+        tabla_html = df.to_html(classes='tabla-estilo', index=False)
+        return render_template('index.html', tabla=tabla_html)
+    return "Error: No se encontró el archivo datos.csv"
 
 if __name__ == "__main__":
-    print("   ANÁLISIS DE VENTAS")
-
-    df_consola = obtener_datos_procesados()
-
-    if df_consola is not None:
-        print("\nDATOS LIMPIOS:")
-        print(df_consola.head())
-
-        print("\nRESUMEN DE VENTAS POR CIUDAD:")
-        ventas_por_ciudad = df_consola.groupby('Ciudad')['ValorVenta'].sum()
-        print(ventas_por_ciudad)
-    else:
-        print("No se pudieron cargar los datos.")
-
-    print("Iniciando Servidor Web...")
-    print("\nIniciando servidor web en http://127.0.0.1:5000")
     app.run(debug=True)

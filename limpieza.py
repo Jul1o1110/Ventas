@@ -20,3 +20,13 @@ def estandarizar_texto(df, columna):
 def limpieza_especifica(df, columna):
     df[columna] = df[columna].replace({'\$': '', ',': ''}, regex=True).astype(int)
     return df
+
+df = cargar_datos('datos.csv')
+
+if df is not None:
+    df = manejar_nulos(df)
+    df = estandarizar_texto(df, 'NombreProducto') 
+    df = limpieza_especifica(df, 'ValorVenta')
+    
+    df.to_csv('datos_limpios.csv', index=False)
+    print("¡Limpieza terminada! Se ha creado 'datos_limpios.csv'")
