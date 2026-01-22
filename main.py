@@ -27,7 +27,20 @@ def home():
                            resumen_ciudad=ventas_ciudad)
 
 if __name__ == "__main__":
-    print("--- EJECUTANDO ANÁLISIS EN CONSOLA ---")
+    print("   ANÁLISIS DE VENTAS")
+
     df_consola = obtener_datos_procesados()
+
+    if df_consola is not None:
+        print("\nDATOS LIMPIOS:")
+        print(df_consola.head())
+
+        print("\nRESUMEN DE VENTAS POR CIUDAD:")
+        ventas_por_ciudad = df_consola.groupby('Ciudad')['ValorVenta'].sum()
+        print(ventas_por_ciudad)
+    else:
+        print("No se pudieron cargar los datos.")
+
+    print("Iniciando Servidor Web...")
     print("\nIniciando servidor web en http://127.0.0.1:5000")
     app.run(debug=True)
